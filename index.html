@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Push Notification</title>
+</head>
+<body>
+
+
+	<b center>Suman</b>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	function showNotification() {
+		const notification = new Notification("New message from dcode!", {
+            body:"Hey mate, how are ya?",
+            icon:"https://youtube.local:17479/assets/dcode.png"
+		});
+
+		console.log(Notification.permission);
+
+		if (Notification.permission === "granted") {
+			showNotification();
+		} 
+
+		else if (Notification.permission !== "denied") {
+             Notification.requestPermission().then(permission => {
+
+             	if (permission === "granted"){
+                 showNotification();
+             	}
+             });
+		}
+
+}
+</script>
+
+</body>
+</html>
